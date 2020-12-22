@@ -12,15 +12,14 @@ public abstract class AbstractPage
 	protected WebDriver driver;
 	protected static final Logger logger = LogManager.getRootLogger();
 	protected abstract AbstractPage openPage();
-	protected static final int WAIT_TIMEOUT_SECONDS = 60;
+	protected static final int WAIT_TIMEOUT_SECONDS = 6;
 	protected final WebDriverWait driverWait;
-
 
 	protected AbstractPage()
 	{
 		this.driver = DriverSingleton.getDriver();
-		driverWait = new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS);
 		PageFactory.initElements(this.driver, this);
+		driverWait = new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS);
 	}
 
 }
