@@ -8,10 +8,9 @@ public class MainPage extends AbstractPage
 
 	private static final String BASE_URL = "";
 
-	public MainPage(WebDriver driver)
+	public MainPage()
 	{
-		super(driver);
-		PageFactory.initElements(this.driver, this);
+		super();
 	}
 
 	@Override
