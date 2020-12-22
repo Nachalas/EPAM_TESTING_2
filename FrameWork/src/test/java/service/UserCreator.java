@@ -10,12 +10,16 @@ public class UserCreator {
     private static final String WRONG_TESTDATA_USER_PASSWORD = "wrongTestdata.user.password";
 
     public static User withCredentialsFromProperty(){
-        return new User(TestDataReader.getTestData(TESTDATA_USER_NAME),
-                TestDataReader.getTestData(TESTDATA_USER_PASSWORD));
+        return new User(
+                TestDataReader.getTestData(TESTDATA_USER_NAME),
+                TestDataReader.getTestData(TESTDATA_USER_PASSWORD)
+        );
     }
 
     public static User withWrongUserData(){
-        return new User(TestDataReader.getTestData(WRONG_TESTDATA_USER_NAME),
-                TestDataReader.getTestData(WRONG_TESTDATA_USER_PASSWORD));
+        return new User(
+                TestDataReader.getTestData(WRONG_TESTDATA_USER_NAME),
+                TestDataReader.getTestData(WRONG_TESTDATA_USER_PASSWORD)
+        );
     }
 }
