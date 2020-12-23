@@ -1,9 +1,14 @@
 package test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import page.CartPage;
 import page.ProductPage;
 import service.ProductPageDataReader;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AddToCartTest extends CommonConditions {
 
@@ -13,17 +18,27 @@ public class AddToCartTest extends CommonConditions {
 
         ProductPage productPage = new ProductPage(productPageUrl);
 
-        String sneakersName = productPage
+        String expectedSneakersName = productPage
                 .openPage()
                 .getProductName();
 
-        String expectedSneakersName = productPage
+        String expectedSneakersSize = productPage
                 .clickOnProductSizeLabel()
+                .getProductSizeLabelText();
+
+        CartPage cartPage = productPage
                 .clickOnAddToCartButton()
-                .clickOnGoToCartButton()
+                .clickOnGoToCartButton();
+
+        String actualSneakersName = cartPage
                 .getProductNameOnCartPage();
 
-        Assert.assertTrue(expectedSneakersName.toLowerCase().contains(sneakersName.toLowerCase()));
+
+        String actualSneakersSize = cartPage
+                .getProductSizeOnCartPage();
+
+        assertThat(actualSneakersName).contains(expectedSneakersName);
+        assertThat(actualSneakersSize).isEqualTo(expectedSneakersSize);
     }
 
 }
