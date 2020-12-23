@@ -8,6 +8,8 @@ import page.CartPage;
 import page.ProductPage;
 import service.ProductPageDataReader;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class AddToCartTest extends CommonConditions {
 
     @Test
@@ -30,6 +32,7 @@ public class AddToCartTest extends CommonConditions {
 
         String actualSneakersName = cartPage
                 .getProductNameOnCartPage();
+
 
         String actualSneakersSize = cartPage
                 .getProductSizeOnCartPage();
