@@ -32,6 +32,10 @@ public class ProductPage extends AbstractPage {
         this.productPageUrl = pageUrl;
     }
 
+    public String getProductSizeLabelText() {
+        return this.productSizeLabel.getText();
+    }
+
     @Override
     public ProductPage openPage() {
         driver.navigate().to(productPageUrl);
