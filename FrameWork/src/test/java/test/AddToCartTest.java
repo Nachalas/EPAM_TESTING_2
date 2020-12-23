@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 import page.ProductPage;
 import service.ProductPageDataReader;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class AddToCartTest extends CommonConditions {
 
     @Test
@@ -23,7 +25,9 @@ public class AddToCartTest extends CommonConditions {
                 .clickOnGoToCartButton()
                 .getProductNameOnCartPage();
 
-        Assert.assertTrue(expectedSneakersName.toLowerCase().contains(sneakersName.toLowerCase()));
+        assertThat(expectedSneakersName.toLowerCase())
+                .contains(sneakersName.toLowerCase());
+
     }
 
 }
