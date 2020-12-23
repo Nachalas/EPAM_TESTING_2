@@ -44,8 +44,13 @@ public class ProductPage extends AbstractPage {
         this.productPageUrl = pageUrl;
     }
 
+
     public ProductPage() {
         super();
+    }
+  
+    public String getProductSizeLabelText() {
+        return this.productSizeLabel.getText();
     }
 
     @Override
